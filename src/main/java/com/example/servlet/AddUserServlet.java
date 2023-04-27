@@ -20,6 +20,15 @@ public class AddUserServlet extends HttpServlet {
     }
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            req.getRequestDispatcher("/jsp/add.jsp").forward(req,resp);
+        }catch (ServletException | IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
